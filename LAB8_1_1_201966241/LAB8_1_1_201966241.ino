@@ -20,10 +20,20 @@ void show_digit(int pos, int number) {  // (위치, 출력할 숫자)
 
 void setup() {
   // put your setup code here, to run once:
-
+  for(int i = 0; i < 4; i++) {  // 자릿수 선택 핀을 출력으로 설정
+    pinMode(digit_select_pin[i], OUTPUT);
+  }
+  for(int i = 0; i < 8; i++) {  // 세그먼트 제어 핀을 출력으로 설정
+    pinMode(segment_pin[i], OUTPUT);
+  }
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-
+  for(int no = 0; no < 10; no++) {
+    for(int pos = 1; pos <= 4; pos++) {
+      show_digit(pos, no);  // 'pos' 자리에 숫자 'no'를 표시
+      delay(200);
+    }
+  }
 }
